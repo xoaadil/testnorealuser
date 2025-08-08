@@ -1,6 +1,4 @@
-import fetch from "node-fetch";
-
-async function sendRequest() {
+export default async function handler(req, res) {
   const response = await fetch("https://usetreq.in/api/generate-thought", {
     method: "POST",
     headers: {
@@ -12,7 +10,5 @@ async function sendRequest() {
   });
 
   const data = await response.json();
-  console.log(data);
+  res.status(200).json(data);
 }
-
-sendRequest();
